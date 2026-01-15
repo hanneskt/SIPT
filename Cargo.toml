@@ -16,8 +16,10 @@ database = { path = "database" }
 axum = "0.8.8"
 dotenvy = "0.15.7"
 serde = {version= "1.0.228", features = ["derive"]}
+serde_with = "3.16.1"
 serde_json = "1.0.149"
 thiserror = "2.0.17"
+reqwest = { version = "0.13.1", features = ["json"] }
 tracing = { version = "=0.1", default-features = false }
 tracing-subscriber = { version = "=0.3", default-features = false, features = [
     "env-filter",

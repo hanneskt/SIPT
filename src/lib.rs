@@ -7,6 +7,7 @@ pub mod config;
 mod error;
 mod extractors;
 mod handlers;
+mod inventory;
 
 #[derive(Clone)]
 pub struct AppState {
