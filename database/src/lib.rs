@@ -1,13 +1,13 @@
 use sqlx::{SqlitePool, migrate::MigrateDatabase, sqlite::SqlitePoolOptions};
 
-use crate::{error::DatabaseError, repos::user::UserRepo};
+use crate::{error::DatabaseError, repos::item::ItemRepo};
 
 pub mod models {
-    pub mod user;
+    pub mod item;
 }
 
 pub mod repos {
-    pub mod user;
+    pub mod item;
 }
 
 pub mod error;
@@ -38,7 +38,7 @@ impl Database {
         Ok(Self { db })
     }
 
-    pub fn users<'a>(&'a self) -> UserRepo<'a> {
-        UserRepo::new(&self.db)
+    pub fn users<'a>(&'a self) -> ItemRepo<'a> {
+        ItemRepo::new(&self.db)
     }
 }

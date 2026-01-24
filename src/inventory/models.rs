@@ -1,17 +1,6 @@
+#![allow(unused)]
 use serde::Deserialize;
 use serde_with::{DisplayFromStr, serde_as};
-
-#[derive(Debug)]
-pub struct Item {
-    pub appid: u32,
-    pub classid: u64,
-    pub instanceid: u64,
-    pub amount: u32,
-    pub icon_url: String,
-    pub name: String,
-    pub market_hash_name: String,
-    pub marketable: u8,
-}
 
 #[derive(Debug, Deserialize)]
 pub struct SteamInventory {
@@ -45,17 +34,22 @@ pub struct SteamDescription {
     pub classid: u64,
     #[serde_as(as = "DisplayFromStr")]
     pub instanceid: u64,
-    pub currency: u32,
-    pub background_color: String,
+
     pub icon_url: String,
-    pub tradable: u8,
-    pub name: String,
-    pub name_color: String,
+    pub background_color: String,
+
     #[serde(rename = "type")]
     pub type_: String,
+
+    pub name: String,
+    pub name_color: String,
     pub market_name: String,
     pub market_hash_name: String,
+
     pub commodity: u8,
+    pub tradable: u8,
     pub marketable: u8,
+    pub currency: u32,
+
     pub sealed: u8,
 }
